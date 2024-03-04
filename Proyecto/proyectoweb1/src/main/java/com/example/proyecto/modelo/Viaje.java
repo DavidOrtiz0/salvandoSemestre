@@ -55,8 +55,29 @@ public class Viaje {
 		this.hora = hora;
 		this.precio = precio;
 		this.disponibilidad = disponibilidad;
-		this.puestos = new boolean[1];
+		//this.puestos = new boolean[1];
 		
+	}
+
+	
+
+	public Integer getId_viaje() {
+		return id_viaje;
+	}
+
+
+	public void setId_viaje(Integer id_viaje) {
+		this.id_viaje = id_viaje;
+	}
+
+
+	public boolean[] getPuestos() {
+		return puestos;
+	}
+
+
+	public void setPuestos(boolean[] puestos) {
+		this.puestos = puestos;
 	}
 
 
