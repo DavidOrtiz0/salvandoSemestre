@@ -12,13 +12,12 @@
           <div class="modal-body">
             <form>
             <div class="mb-3">
-              <label  class="form-label">Numero de documento</label>
-              <input for="inputCedula" type="text"  class="form-control">
+              <input for="inputCedula" type="number"  class="form-control" name="cedula" [(ngModel)]="cedula">
             </div>
             </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Consultar</button>
+          <button type="button" class="btn btn-primary" (click)="consultarReserva(cedula)">Consultar</button>
         </div>
         <table class="table table-striped">
             <thead>
@@ -31,7 +30,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let item of muestra">
+                <tr *ngFor="let item of reserva">
                     <td>{{item.destino}}</td>
                     <td>{{item.fecha}}</td>
                     <td>{{item.hora_reserva}}</td>
