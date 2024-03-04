@@ -1,0 +1,22 @@
+nav {
+    display: flex; /* Hace que los elementos se muestren en línea */
+    list-style: none; /* Quita los puntos de lista */
+    justify-content: right;
+
+  }
+  
+  .nav-item {
+    margin-right: 20px; /* Ajusta el margen entre elementos */
+  }
+  
+  .nav-link {
+    text-decoration: none; /* Quita el subrayado de los enlaces */
+    padding: 20px 30px; /* Ajusta el relleno de los enlaces */
+    color: #0077b6; /* Color del texto */
+    font-size: 25px;
+  }
+  
+  .nav-link.active {
+    font-weight: bold; /*resalta el enlace activo */
+  }
+ 

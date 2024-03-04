@@ -49,6 +49,7 @@ public class ControladorCliente {
 		return this.repositorioCliente.findById(cedula).get();
 	} 
 	
+
 	@PostMapping("GuardarReserva")
 	public List<Object> GuardarReserva(@RequestBody Objres datosReserva){
 		try {
@@ -76,9 +77,10 @@ public class ControladorCliente {
 		}
 		
 	}
+
 	
 	@GetMapping("/MostrarReserva")
-	public List<Object> Mostrar_la_Reserva(Integer cedula){
+	public List<reserva> Mostrar_la_Reserva(Integer cedula){
 		return this.repositorio_R.MostrarReserva(cedula);
 	}
 	
@@ -86,9 +88,9 @@ public class ControladorCliente {
 	
 	/*CASO DE USO #2*/
 	
-	@GetMapping("/ConsultarReserva")
-	public List<Object>Consultar(){
-		return this.repositorio_R.ConsultarReserva(456789123);
+	@PostMapping("/ConsultarReserva")
+	public List<Object>Consultar(@RequestBody Integer cedula){
+		return this.repositorio_R.ConsultarReserva(cedula);
 	} //listo
 	
 	/*FIN CASO DE USO #2*/

@@ -9,16 +9,15 @@
   
   .image {
     padding: 20px;
+    width: 500px;
+    height: 300px;
   }
   
-  button {
-    display: block;
-    margin-top: 10px;
-  }
+
 
 .bus{
-    width: 30%;
-    height: 30%;
+    width: 90%;
+    height: 90%;
   }
 
   

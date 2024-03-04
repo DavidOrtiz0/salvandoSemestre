@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.time.LocalDate;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -43,10 +45,18 @@ public class ControladorAdministrador {
 		return permiso.get();
 	}
 	
+	/*@GetMapping("/ListarPorDia")
+	public List<reserva>listarReservaDia() {
+		LocalDate fecha_de_reserva = LocalDate.now();
+		return repositorioReserva.ListarPorDia(fecha_de_reserva);
+		}*/
+	
+	
 	@GetMapping("/BuscarPorBus")
 	public List<Object> MostrarPorBus(){
 		String bus= "BUS001";
 		return repositorioReserva.Mostrar_Por_Bus(bus);
 	}
+	
 
 }

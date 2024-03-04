@@ -13,6 +13,12 @@ export class ReservaService {
 
   constructor(private http: HttpClient) { }
 
+  BuscarReservaUrl ="http://localhost:8080/ver/cliente/ConsultarReserva";
+
+  ConsultarReservaporCed(cedula: number): Observable<Reserva[]> {
+    return this.http.post<Reserva[]>(`${this.BuscarReservaUrl}`, cedula);
+  }
+  
   CrearReservaUrl = "http://localhost:8080/ver/cliente/GuardarReserva";
 
   CrearReserva(cliente: Cliente, viaje: Viaje): Observable<Reserva>{
