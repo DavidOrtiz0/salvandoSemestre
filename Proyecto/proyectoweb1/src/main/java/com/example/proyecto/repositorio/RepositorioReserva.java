@@ -15,10 +15,11 @@ import jakarta.transaction.Transactional;
 @Transactional
 public interface RepositorioReserva extends JpaRepository < reserva, Integer > {
 
-	 @Query(value = "select distinct reserva.puesto_asignado, viaje.precio, reserva.cc_cliente "
+	 /*@Query(value = "select distinct reserva.puesto_asignado, viaje.precio, reserva.cc_cliente "
 	 		+ "from proyecto.reserva "
-	 		+ "join proyecto.viaje on viaje.id_viaje = reserva.id_viaje and cc_cliente = :cedula ;", nativeQuery=true)
-	public List<Object> MostrarReserva(@Param("cedula")Integer cedula);
+	 		+ "join proyecto.viaje on viaje.id_viaje = reserva.id_viaje and cc_cliente = :cedula ;", nativeQuery=true)*/
+	@Query(value = "SELECT * FROM reserva WHERE cc_cliente = :cedula", nativeQuery = true)
+	public List<reserva> MostrarReserva(@Param("cedula")Integer cedula);
 	
 	@Query(value = "Select viaje.destino,viaje.hora, viaje.precio, viaje.fecha "
 			+ "from proyecto.viaje "
