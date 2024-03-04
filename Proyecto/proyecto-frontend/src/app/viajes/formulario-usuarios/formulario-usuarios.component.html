@@ -1,0 +1,40 @@
+<button type="button" class="btn btn-primary" (click)="AbrirFomulario()">Seleccionar</button>
+
+<div class="modal" tabindex="-1" id="formulario-clientes" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Datos de cliente</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="cerrarFormulario()"></button>
+        </div>
+        <div class="modal-body">
+          <p>Ingrese su información para realizar su reserva</p>
+          <form>
+            <div class="mb-3">
+              <label  class="form-label">Cedula</label>
+              <input for="inputCedula" type="number" [ngModelOptions]="{standalone: true}" [(ngModel)]="cedula" class="form-control">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Nombre </label>
+              <input for="inputNombre" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="nombre"class="form-control" >
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Apellido</label>
+              <input for="inputApellido" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="apellido"class="form-control" >
+            </div>
+            <div class="mb-3">
+              <label class="form-label">telefono</label>
+              <input for="inputCorreo" type="number" [ngModelOptions]="{standalone: true}" [(ngModel)]="telefono" class="form-control" >
+            </div>
+            <div class="mb-3">
+              <label class="form-label">fecha de nacimiento</label>
+              <input for="inputCorreo" type="date" [ngModelOptions]="{standalone: true}" [(ngModel)]="fecha_de_nacimiento" class="form-control" >
+            </div>
+        </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" (click)="CrearCliente()">Confirmar reserva</button>
+        </div>
+      </div>
+    </div>
+  </div>

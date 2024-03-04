@@ -1,0 +1,26 @@
+
+<button type="button" class="btn btn-primary btn-lg" (click)="AbrirFomulario()">Buscar destino</button>
+<div class="modal" tabindex="-1" id="buscar_viaje">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Buscar</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="cerrarFormulario()"></button>
+        </div>
+        <div class="modal-body">
+          <p>Ingrese el destino al que desea viajar</p>
+        </div>
+        <div class="modal-footer">
+            <div class = container>
+              <form>
+              <div class="mb-3">
+                <input for="inputDestino" type="text" [ngModelOptions]="{standalone:true}" [(ngModel)]="destino" class="form-control">
+              </div>
+              </form>
+                  <br>
+                  <app-viajes (click)="Busqueda()"></app-viajes>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>

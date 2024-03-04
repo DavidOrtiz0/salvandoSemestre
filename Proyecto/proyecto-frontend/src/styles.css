@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+body{background-color: #73B1BF;}
+
+nav {
+    display: flex; /* Hace que los elementos se muestren en línea */
+    list-style: none; /* Quita los puntos de lista */
+    justify-content: center;
+  }
+  
+  .nav-item {
+    margin-right: 200px; /* Ajusta el margen entre elementos */
+  }
+  
+  .nav-link {
+    text-decoration: none; /* Quita el subrayado de los enlaces */
+    padding: 10px 15px; /* Ajusta el relleno de los enlaces */
+    color: #122eac; /* Color del texto */
+  }
+  
+  .nav-link.active {
+    font-weight: bold; /*resalta el enlace activo */
+  }
+  

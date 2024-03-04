@@ -1,0 +1,63 @@
+
+<button type="button" class="btn btn-primary btn-lg" (click)="AbrirFomulario()"> Consultar mi reserva</button>
+<div class="modal" tabindex="-1" id="consultar">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Consultar Reserva</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="cerrarFormulario()"></button>
+        </div>
+        <div class="modal-body">
+          <p>Ingrese el numero de documento de la persona que realizo la reserva:</p>
+          <div class="modal-body">
+            <form>
+            <div class="mb-3">
+              <label  class="form-label">Numero de documento</label>
+              <input for="inputCedula" type="text"  class="form-control">
+            </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Consultar</button>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Destino</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Hora</th>
+                    <th scope="col">Valor</th>
+                    <th scope="col">Opción</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of muestra">
+                    <td>{{item.destino}}</td>
+                    <td>{{item.fecha}}</td>
+                    <td>{{item.hora_reserva}}</td>
+                    <td>{{item.valor}}</td>
+                    <td><button type="button" class="btn btn-primary btn-lg" (click)="confirmarEliminarReserva()"
+                      style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                    <i class="bi bi-trash3"></i> Eliminar</button></td>
+                </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </div>
+  <div class="modal" tabindex="-1" id ="confirmar">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="alert alert-danger" role="alert">
+            Estas seguro de realizar esta accion?
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="cerrarConfirmacion()">Cancelar</button>
+          <button type="button" class="btn btn-primary">Confirmar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+ 

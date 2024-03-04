@@ -1,0 +1,24 @@
+<div id="logIn">
+    <form class="row g-3">
+        <div class="col-auto">
+          <label for="inputusuario" class="visually-hidden">Usuario</label>
+          <input type="text" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="usuario" placeholder="Usuario" >
+        </div>
+        <div class="col-auto">
+          <label for="inputcontrasena" class="visually-hidden">Password</label>
+          <input type="password" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="contrasena" placeholder="Password">
+        </div>
+        <div class="col-auto">
+          <button type="submit" class="btn btn-primary mb-3" (click)="validar()">Iniciar Sesión</button>
+        </div>
+      </form>
+</div>
+
+<div id="indexAdm">
+    <h1>hola paula</h1>
+    <br>
+    <app-lista-por-dia></app-lista-por-dia>
+    <app-lista-por-bus></app-lista-por-bus>
+    <br><br>
+    <app-buscar-viaje></app-buscar-viaje>
+</div>
