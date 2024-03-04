@@ -13,6 +13,13 @@
             </tr>
         </thead>
         <tbody>
+            <tr *ngFor="let item of reserva">
+                <td>{{item.fecha_de_reserva}}</td>
+                <td>{{item.id_viaje.fecha}}</td>
+                <td>{{item.cc_cliente.nombre}}</td>
+                <td>{{item.cc_cliente.apellido}}</td>
+                <td><button type="button" class="btn btn-primary btn-lg">Pagar</button></td>
+              </tr>
         </tbody>
         </table>
     </div>

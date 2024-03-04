@@ -19,12 +19,6 @@ export class ConsultarReservaComponent implements OnInit {
   ngOnInit(): void {
     this.hora_colocar.setHours(10);
     
-    this.reserva = [{
-      "destino":"medellin",
-      fecha: new Date(2024, 10, 10),
-      hora_reserva: this.hora_colocar,
-      valor:2000
-    }]
   }
   constructor(private reservaservicio : ReservaService){
 
@@ -67,5 +61,5 @@ export class ConsultarReservaComponent implements OnInit {
         }
       ); 
   }
-
+ 
 }

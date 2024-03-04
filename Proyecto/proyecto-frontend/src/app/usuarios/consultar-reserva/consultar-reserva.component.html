@@ -31,10 +31,10 @@
             </thead>
             <tbody>
                 <tr *ngFor="let item of reserva">
-                    <td>{{item.destino}}</td>
-                    <td>{{item.fecha}}</td>
-                    <td>{{item.hora_reserva}}</td>
-                    <td>{{item.valor}}</td>
+                    <td>{{item.id_viaje.destino}}</td>
+                    <td>{{item.id_viaje.fecha}}</td>
+                    <td>{{item.id_viaje.hora}}</td>
+                    <td>{{item.id_viaje.precio}}</td>
                     <td><button type="button" class="btn btn-primary btn-lg" (click)="confirmarEliminarReserva()"
                       style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
                     <i class="bi bi-trash3"></i> Eliminar</button></td>

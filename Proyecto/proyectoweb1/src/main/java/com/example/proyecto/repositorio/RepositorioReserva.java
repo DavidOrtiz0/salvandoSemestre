@@ -26,6 +26,10 @@ public interface RepositorioReserva extends JpaRepository < reserva, Integer > {
 			+ "join proyecto.reserva on viaje.id_viaje = reserva.id_viaje and reserva.cc_cliente = :cedula", nativeQuery = true)
 	public List <Object> ConsultarReserva(@Param("cedula") Integer cedula);
 	
+	
+	/*@Query(value = "SELECT * FROM reserva WHERE reserva.fecha_de_reserva = :fecha_reserva", nativeQuery = true)
+	public List<reserva> ListarPorDia(@Param(":fecha_reserva") LocalDate fecha_de_reserva);*/
+	
 	@Query(value = "select viaje.id_bus, reserva.id_reserva, cliente.nombre, cliente.apellido "
 			+ "from proyecto.reserva "
 			+ "join proyecto.viaje on reserva.id_viaje = viaje.id_viaje "
