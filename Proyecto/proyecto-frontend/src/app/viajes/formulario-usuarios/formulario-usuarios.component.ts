@@ -61,7 +61,21 @@ export class FormularioUsuariosComponent implements OnInit{
   }
 
   CrearReserva(cliente: Cliente, viaje: Viaje){
-    this.reservaServicio.CrearReserva(cliente, viaje);
+    this.reservaServicio.CrearReserva(cliente, viaje).subscribe({
+      next: (DatoReserva) =>{
+        if(DatoReserva == null){
+          alert("error, no se pudo reservar");
+        }else{
+          alert("se realizo reseva exitosamente")
+        }
+      },
+      error: (ErrorReserva) =>{
+        console.log("el error en crear reserva es: ", ErrorReserva);
+      },
+      complete: ()=>{
+        console.info("se completo crear reserva");
+      }
+    });
   }
 
   AbrirFomulario(){

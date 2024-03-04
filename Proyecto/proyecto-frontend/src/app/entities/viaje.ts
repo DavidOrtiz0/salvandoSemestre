@@ -6,5 +6,5 @@ export class Viaje {
     destino: string;
     hora: Date;
     fecha: Date;
-    precio: string;
+    precio: number;
 }

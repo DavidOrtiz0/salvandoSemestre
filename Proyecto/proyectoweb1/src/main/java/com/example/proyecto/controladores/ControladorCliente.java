@@ -4,11 +4,14 @@ package com.example.proyecto.controladores;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.proyecto.modelo.Cliente;
+import com.example.proyecto.modelo.Objres;
 import com.example.proyecto.modelo.Viaje;
 import com.example.proyecto.modelo.reserva;
 import com.example.proyecto.repositorio.RepositorioCliente;
 import com.example.proyecto.repositorio.RepositorioReserva;
 import com.example.proyecto.repositorio.RepositorioViaje;
+
+import org.apache.el.stream.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,38 +40,44 @@ public class ControladorCliente {
 	@PostMapping("/BuscarDestino")
 	public List<Viaje>BuscarViaje(@RequestBody String destino){
 		return this.repositorio_V.findByDestino(destino);
-	} //listo
+	}
 
 	@PostMapping("/GuardarInfoCliente")
 	public Cliente GuardarCliente(@RequestBody Cliente cliente){
-		repositorioCliente.save(cliente);
 		Integer cedula = cliente.getCedula();
-		System.out.print("marcador");
+		repositorioCliente.save(cliente);
 		return this.repositorioCliente.findById(cedula).get();
-	} //listo
+	} 
 	
-	/*@PostMapping("GuardarReserva")
-	public List<Object> GuardarReserva(@RequestBody Object datosReserva){
-		Object[] lista = (Object[]) datosReserva;
-		
-		Cliente cl = (Cliente) lista[0];
-		Viaje v = (Viaje) lista[1];
-		System.out.print(cl.getNombre() + v.getDestino());
-		/*
-		Cliente cliente;
-		Viaje viaje;
+
+	@PostMapping("GuardarReserva")
+	public List<Object> GuardarReserva(@RequestBody Objres datosReserva){
 		try {
-			cliente = this.repositorioCliente.findById(333).get();
-			viaje = this.repositorio_V.findById(1).get();
-		}catch(Exception error){return null;}
-		
 		LocalDate fecha_reserva = LocalDate.now();
 		
-		reserva reserva = new reserva(cliente, viaje, 1, false, fecha_reserva);
+		reserva reserva = new reserva();
+		reserva.setCc_cliente(datosReserva.getCliente());
+			try {
+			reserva.setId_viaje(datosReserva.getViaje());
+			}catch(Exception error) {
+				System.out.println("error al setear reserva: " + error);
+			}
+		reserva.setPuesto_asignado(1);
+		reserva.setEstado_de_pago(false);
+		reserva.setFecha_de_reserva(fecha_reserva);
 		
-		this.repositorio_R.save(reserva);*/
-		//return repositorio_R.MostrarReserva(1);
-	//}
+		this.repositorio_R.save(reserva);
+		
+		System.out.println("marcador guardar reserva");
+		return repositorio_R.MostrarReserva(datosReserva.getCliente().getCedula());
+		
+		}catch(Exception error) {
+			System.out.print("error al ejecutar funcion: " + error);
+			return null;
+		}
+		
+	}
+
 	
 	@GetMapping("/MostrarReserva")
 	public List<reserva> Mostrar_la_Reserva(Integer cedula){
